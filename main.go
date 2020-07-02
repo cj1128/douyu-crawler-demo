@@ -224,7 +224,7 @@ or douyu-crawler-demo -ocr <font_file>`)
 	log.Printf("  total: %d\n", totalCount)
 	log.Printf("  success: %d\n", successCount)
 	log.Printf("  error: %d\n", errorCount)
-	log.Printf("  ocr failed count: %d\n", ocrFailedCount)
+	log.Printf("  ocr failed: %d\n", ocrFailedCount)
 }
 
 func crawlRoom(l *log.Logger, roomID string) crawlResult {
@@ -285,14 +285,14 @@ func crawlRoom(l *log.Logger, roomID string) crawlResult {
 	imgPath := path.Join("result", "tmp", result.fontID+".png")
 	{
 		if fileExists(imgPath) {
+			l.Println("rendered image found")
+		} else {
 			if err := renderFont(fontPath, imgPath); err != nil {
 				result.err = errors.Wrap(err, "could not render font")
 				return result
 			}
 
 			l.Println("rendered image created")
-		} else {
-			l.Println("rendered image found")
 		}
 	}
 
