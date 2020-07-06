@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # 生成用于数字混淆的字体文件用于反爬
-# 即字体对于数字的渲染时错误的，例如数字 1 会渲染成 5
+# 即字体对于数字的渲染是错误的，例如数字 1 会渲染成 5
 # ./genfont.py <font-file> <count>
 # 生成字体在 result/generated 目录中
 
